@@ -1,12 +1,24 @@
 import React from "react";
-import Profile from "../../components/profile";
-import Header from "../../components/header";
+import { Link } from "react-router-dom";
+
+
 
 function Home(){
+   const produtos = [
+    {nome: 'Batedeira', id:20},
+    {nome: 'Ventsilador', id:22},
+    {nome: 'Computador', id:30},
+
+   ]
+
     return(
         <div>
-            <Header />
-            <Profile />
+            {produtos.map((produto) => (
+                <Link to={`detalhes/${produto.id}`}>
+                <span style={{display: 'block'}}>{produto.nome}</span>
+                </Link>
+                
+            ))}
         </div>
     )
 }
