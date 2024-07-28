@@ -1,18 +1,37 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './styles.css'
 import { UserContext } from '../../contexts/userContext';
+import { Link, useNavigate } from 'react-router-dom';
 
-function Header(){
-    const {login, setLogin} = useContext (UserContext);
+function Header() {
+    const { login, setLogin } = useContext(UserContext);
+    const navigate = useNavigate();
 
-    return(
+    const active = false;
+
+    useEffect(() => {
+        if (active) {
+            navigate ('contato')
+        } else {
+            navigate('fotos')
+        }
+    }, [])
+
+    return (
         <div>
             <nav>
                 <ul>
-                    <li>Home</li>
-                    <li>Fotos</li>
+                    <Link>
+                        <li>Home</li>
+                    </Link>
+                    <Link to='/fotos'>
+                        <li> Fotos </li>
+                    </Link>
+                    <Link to='/contato'>
                     <li>Contato</li>
-                    <li onClick={() => setLogin (!login)}>{login ? 'Deslogar' : 'Login'}</li>
+                    </Link>
+                    
+                    <li onClick={() => navigate('contato')}>Login</li>
                 </ul>
             </nav>
         </div>
