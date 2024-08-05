@@ -4,7 +4,9 @@ import Home from './pages/home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Contato from './pages/contato/contato';
 import Fotos from './pages/fotos/fotos';
-import Detalhes from './pages/detalhes/detalhes';
+import Comentarios from './pages/comentarios/comentarios';
+import Footer from './components/footer/footer';
+import Pagament from './components/pagament/pagament';
 
 
 function App() {
@@ -13,9 +15,12 @@ function App() {
     <BrowserRouter >
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/contato' element={<Contato />} />
         <Route path='/fotos' element={<Fotos />} />
-        <Route path='/detalhes/:id' element={<Detalhes />} />
+        <Route path='/comentarios' element={<Comentarios />} />
+        <Route path='/footer' element={<Footer />} />
+        <Route path='/pagament' element={<Pagament />} />
       </Routes>
     </BrowserRouter>
   );

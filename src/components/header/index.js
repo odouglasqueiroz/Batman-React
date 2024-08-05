@@ -1,41 +1,36 @@
-import React, { useContext, useEffect } from 'react';
-import './styles.css'
-import { UserContext } from '../../contexts/userContext';
-import { Link, useNavigate } from 'react-router-dom';
+import React from "react";
+import "./styles.css";
+import { Link } from "react-router-dom";
+import Logo from "../../assets/batman.png";
 
 function Header() {
-    const { login, setLogin } = useContext(UserContext);
-    const navigate = useNavigate();
-
-    const active = false;
-
-    useEffect(() => {
-        if (active) {
-            navigate ('contato')
-        } else {
-            navigate('fotos')
-        }
-    }, [])
 
     return (
-        <div>
+        <header>
+            <Link to='/home'>
+             <img id="logo" src={Logo} />
+            </Link>
             <nav>
                 <ul>
-                    <Link>
+                    <Link to='/home' style={{ textDecoration: "none" }}>
                         <li>Home</li>
                     </Link>
-                    <Link to='/fotos'>
+
+                    <Link to="/contato" style={{ textDecoration: "none" }}>
+                        <li> Contato </li>
+                    </Link>
+
+                    <Link to="/fotos" style={{ textDecoration: "none" }}>
                         <li> Fotos </li>
                     </Link>
-                    <Link to='/contato'>
-                    <li>Contato</li>
+
+                    <Link to="/comentarios" style={{ textDecoration: "none" }} >
+                        <li> Comentários </li>
                     </Link>
-                    
-                    <li onClick={() => navigate('contato')}>Login</li>
                 </ul>
             </nav>
-        </div>
-    )
+        </header>
+    );
 }
 
 export default Header;

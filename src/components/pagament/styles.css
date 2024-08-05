@@ -1,0 +1,41 @@
+#pagament {
+    color: aliceblue;
+}
+
+#pay-container{
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pay {
+   display: flex;
+   height: 40px;
+}
+
+
+.pay-x{
+    align-items: center;
+    flex-direction: column;
+   
+}
+
+.footer-navigation {
+    display: none;
+}
+
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+@media (max-width:768px){
+
+    .footer-navigation {
+        display: flex;
+    }
+
+}
